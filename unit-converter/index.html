@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+Into+Light&display=swap" rel="stylesheet" />
+
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+      <h1 class="unitTitle">Unit Converter</h1>
+
+      <section class="units">
+        <div id="length">Length</div>
+        <div id="weight">Weight</div>
+        <div id="temperature">Temperature</div>
+      </section>
+
+      <div class="ConvertSection">
+        <label for="unitToConvert">Enter the Length to convert</label>
+        <input type="text" id="unitToConvert" name="unitToConvert">
+        <label for="convertFrom">Unit to Convert from</label>
+        <input list="convertFrom" id="finaleConvertFrom" name="convertFrom">
+        <datalist id="convertFrom">
+        </datalist>
+
+        <label for="convertTo">Unit to Convert to</label>
+        <input list="convertTo" id="finaleConvertTo" name="convertTo">
+        <datalist id="convertTo">
+        </datalist>
+
+        <button id="convert">Convert</button>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
