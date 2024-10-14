@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <header>
+    <h1><a href="http://localhost:3000/">Update Article</a></h1>
+  </header>
+
+  <main>
+   <form>
+      <input type="text" id="title" placeholder="Article Title">
+      <textarea id="content"></textarea>
+      <button type="button" id="button">Update</button>
+    </form>
+  </main>
+
+  <script>
+    const query = window.location.search;
+    const param = new URLSearchParams(query).get('id');
+
+    const title = document.getElementById('title');
+    const content = document.getElementById('content');
+    const button = document.getElementById('button');
+
+    button.addEventListener("click", () => {
+      if (!title.value || !content.value) {
+        alert("Missing required field")
+        return;
+      }
+
+      fetch(`http://localhost:3000/article?id=${param}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: title.value,
+          content: content.value
+        })
+      })
+        .then(res => {
+          if (res.ok) window.location.replace('http://localhost:3000/')
+          else throw new Error(res.json());
+        })
+        .catch(error => {
+          console.error('error', error.message);
+        });
+    })
+  </script>
+</body>
+</html>

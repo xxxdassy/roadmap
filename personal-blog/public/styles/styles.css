@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.methods {
+  display: flex;
+  gap: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+input {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background-color: white;
+  color: black;
+  display: block;
+  cursor: pointer;
+}

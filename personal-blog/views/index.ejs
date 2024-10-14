@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Personal Blog</h1>
+    <p><a href="http://localhost:3000/admin">Admin</a></p>
+  </header>
+
+  <main>
+    <% articles.map(article => { %>
+    <div class="line-container">
+      <p><a href="http://localhost:3000/article?id=<%= article.id %>"><%= article.title %></a></p>
+      <p><%= article.createdAt %></p>
+    </div>
+    <% }) %>
+  </main>
+</body>
+</html>

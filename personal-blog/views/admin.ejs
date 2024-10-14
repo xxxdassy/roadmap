@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <header>
+    <h1><a href="http://localhost:3000/">Personal Blog</a></h1>
+    <p><a href="http://localhost:3000/new">+ Add</a></p>
+  </header>
+
+  <main>
+    <% articles.map(article => { %>
+      <div class="line-container">
+        <p><a href="http://localhost:3000/article?id=<%= article.id %>"><%= article.title %></a></p>
+        <div class="methods">
+          <p><a href="http://localhost:3000/edit?id=<%= article.id %>">Edit</a></p>
+          <p><a id="delete" href="http://localhost:3000/article?id=<%= article.id %>">Delete</a></p>
+        </div>
+      </div>
+    <% }) %>
+  </main>
+
+  <script>
+    const link = document.getElementById('delete');
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      fetch(link.href, {
+        method: 'DELETE',
+      })
+        .then(res => {
+          if (res.ok) window.location.replace('http://localhost:3000/')
+          else throw new Error(res.json());
+        })
+        .catch(error => {
+          console.error('error', error.message);
+        });
+    })
+  </script>
+</body>
+</html>
+
